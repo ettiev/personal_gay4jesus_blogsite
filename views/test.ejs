@@ -1,0 +1,84 @@
+<%- include('partials/header'); -%>
+
+<div class="container">
+    <h1 class="page_head">My journey through the “Sides”</h1>
+
+    <h2 class="blog_author">Written by ettie.v</h2>
+    <h4 class="author_location"> from Centurion South Africa</h4>
+
+    <h3 class="blog_date">6 September 2023</h3>
+
+    <p class="blog_content">
+        In my early age my family knew that I was gay but they did not want to talk about with me. The only way they could talk about, or to have a conversation about it, was to say how evil and demonic it is. Through their conversations I could tell that they were indirectly sending me a message to change. As I was in a conservative church and I was so committed to church, I would pray and ask God to deliver me from being gay. I did pray and fast, but nothing changed. I didn’t accept that I am gay and in doing so I caused harm to my fellow LGBTQI folks and myself. I attempted suicide three times. After the last time in 2019, I felt that enough is enough and I took a decision to spend time with God. 
+        <br /><br />When I spent time with God, asking Him to deliver me, He still did not. I said, “God fix me or kill me. I am tired.” He never responded to my request, but He showed me the ministry that He expected me to do here on earth. That made me angry with God because I had an issue that needed to be dealt with before I could go do what he wanted me to do. One day, while I was praying, I saw myself preaching in an auditorium with rainbow flags. God had never said anything about LGBTQI folks before. With that vision I made up my mind to be an activist that would advocate for the LGBTQI folks in the church and promote inclusion.
+        <br /><br />When I started having conversations about LGBTQI folks, I was named all sorts of names that are demonic and satanic. I felt like I was doing something wrong at times, but I never stopped because I felt that this was my calling. 
+        <br /><br />My family was ok with me not talking about it, but when I brought it up for the first time, I was told that am not part of the family anymore. I was kind of bothered, but not too much because God had dealt with my heart, and I continued constantly loving them. As much as they hated me, I loved them back even more, which ultimately was the greatest testimony advocating in my favour. After about a year and half we were reconciled as a family. Now I am mostly on good terms with them, because there are many who will pretend to love you, but still make funny comments and remarks. 
+        <br /><br />Today I stand as a proudly gay minister and will continue spreading the Word.
+
+    </p>
+    
+    
+</div>
+<%- include('partials/footer'); -%>
+
+
+<!-- app.js - if no blogposts are found
+
+const blog1 = new Blog({
+    title: "Blogpost - Test 1",
+    author: "ettie.v",
+    location: "Centurion, South Africa",
+    date: "14 June 2023",
+    content: "This is a test for the Gay 4 Jesus blogpost site. Real content will be upoaded as soon as possible.",
+    love: 5,
+    published: true
+
+});
+
+const blog2 = new Blog({
+    title: "Blogpost - Test 2",
+    author: "ettie.v",
+    location: "Centurion, South Africa",
+    date: "14 June 2023",
+    content: "This is a test for the Gay 4 Jesus blogpost site. Real content will be upoaded as soon as possible.",
+    love: 1,
+    published: true
+});
+
+const blog3 = new Blog({
+    title: "Blogpost - Test 3",
+    author: "ettie.v",
+    location: "Centurion, South Africa",
+    date: "14 June 2023",
+    content: "This is a test for the Gay 4 Jesus blogpost site. Real content will be upoaded as soon as possible.",
+    love: 21,
+    published: true
+});
+
+const newBlogs = [blog1, blog2, blog3];
+
+
+app.get("/blogs", function(req, res){
+    Blog.find({}).then(function(blogs){
+    if (blogs.length === 0) {
+          Blog.insertMany(newBlogs).then(function(){
+            console.log("Successfully added items!");
+          }).catch(function(err){
+            console.log(err);
+          });
+          res.redirect("/blogs")
+        }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+-->

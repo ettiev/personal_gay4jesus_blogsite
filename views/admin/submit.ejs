@@ -1,0 +1,46 @@
+<%- include('partials/admin_header'); -%>
+        
+            <div class="container">
+                <h1 class="page_head">Submit a New Blogpost:</h1>
+                
+                <% if (errors) { %>
+                    <% errors.forEach(error => { %>
+                        <div class="error">
+                            <p><%= error %></p>
+                        </div>
+                    <% }) %>
+                <% } %>
+
+                <form action="/admin/submit" method="POST">
+                    <div class="row">
+                        <div class="col-9 mb-3">
+                            <label for="blogAuthor" class="form-label">Blog Author:</label>
+                            <input type="hidden" class="form-control" id="blogAuthor" name="blogAuthor" placeholder="Blog author" value="<%= user.username %>">
+                            <h4><strong><%= user.username %></strong></h4>
+                        </div>
+                        <div class="col-9 mb-3">
+                            <label for="authorLocation" class="form-label">Author Location:</label>
+                            <input type="text" class="form-control" id="authorLocation" name="authorLocation" placeholder="Location - e.g. London, England" required>
+                        </div>
+                        <div class="col-9 mb-3">
+                            <label for="blogTitle" class="form-label">Blog Title:</label>
+                            <input type="text" class="form-control" id="blogTitle" name="blogTitle" placeholder="Blog title" required>
+                        </div>
+                        <div class="col-9 mb-3">
+                            <label for="blogContent" class="form-label" >Blog Post:</label>
+                            <textarea class="content_text" id="summernote" name="blogContent" rows="12" placeholder="Type your blogpost here" style="color: black;" onpaste="removeFormat()" required></textarea>
+                        </div>
+                        <div class="col-9 mb-3">
+                            <button class="btn-post-submit" type="submit">Submit</button>
+                        </div>    
+                    </div>   
+                </form>
+            </div> 
+
+<script>
+    function removeFormat() {
+        document.getElementById("summernote").innerText = TextFormatRemove(document.getElementById("summernote").innerText)
+    }
+</script>
+
+<%- include('partials/admin_footer'); -%>

@@ -1,0 +1,281 @@
+body {
+    background-color: #E1EFF7;
+    font-family: 'K2D', sans-serif;
+}
+
+h1 {
+    font-family: 'Stylish', sans-serif;
+    font-size: 55px; 
+}
+
+.title {
+    font-family: 'Stylish', sans-serif;
+    font-size: 28px;    
+}
+
+
+a:active {
+    color: black;
+  } 
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.dropmenu {
+    background-color: #ebf3f8;
+    border: 1px solid rgba(196, 196, 196, 0.268);
+    color: black;
+   }
+
+.error {
+    border: 2px solid red;
+    background-color: rgb(252, 214, 214);
+    color: rgb(226, 0, 0);
+    margin: 10px;
+    padding: 10px;
+    width: 95%;
+}
+
+.success {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-item {
+    color: #006678;
+}
+
+.page_head {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.blog_head {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.blog_author {
+    font-size: 30px;
+    color: grey;
+}
+
+.author_location {
+    font-size: 20px;
+    color: grey;
+}
+
+.blog_date{
+    font-size: 25px;
+    color: grey;
+    margin-bottom: 25px;
+}
+
+.blog_content{
+    font-size: 22px;
+}
+
+.comment-card {
+    background-color: #E1EFF7;
+    border: 2px solid #0290a9;
+    margin: 8px;
+    padding: 15px;
+}
+
+.login-form{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-logo{
+    display: block;
+    width: 40%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.new-post-image {
+    float: right;
+    height: 35px;
+    width: 35px;
+    margin: 0px;
+}
+
+.post-card {
+    background-color: #ebf3f8;
+}
+
+.post-page {
+    background-color: #ebf3f8;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 25px 25px 10px 25px;
+}
+
+.subscript {
+    font-size: 11px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.they-lovit {
+    margin: 20px 10px 0px 10px;
+}
+
+.they-lovit-title {
+    text-align: center;
+    font-size: 20px;
+}
+
+.they-lovit-num {
+    text-align: center;
+    font-size: 30px;
+}
+
+.quote-text {
+    margin-left: 50px;
+    font-style: italic;
+}
+
+.welcome-container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+#arrow_logo {
+    margin-right: 17px; 
+}
+
+#footer-logo {
+    margin: 30px 20px 20px;
+}
+
+#main_logo {
+    margin-top: 0px
+}
+
+
+.btn {
+    background: #006678;
+    background-image: -webkit-linear-gradient(top, #006678, #4FA8FF);
+    background-image: -moz-linear-gradient(top, #006678, #4FA8FF);
+    background-image: -ms-linear-gradient(top, #006678, #4FA8FF);
+    background-image: -o-linear-gradient(top, #006678, #4FA8FF);
+    background-image: linear-gradient(to bottom, #006678, #4FA8FF);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: 'K2D', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    max-width: 150px;
+  }
+  
+  .btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+  }
+
+.love-btn {
+    background: #f53fe9;
+    background-image: -webkit-linear-gradient(top, #f53fe9, #af2bb8);
+    background-image: -moz-linear-gradient(top, #f53fe9, #af2bb8);
+    background-image: -ms-linear-gradient(top, #f53fe9, #af2bb8);
+    background-image: -o-linear-gradient(top, #f53fe9, #af2bb8);
+    background-image: linear-gradient(to bottom, #f53fe9, #af2bb8);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: 'K2D', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  
+  .love-btn:hover {
+    background: #f585ef;
+    background-image: -webkit-linear-gradient(top, #f585ef, #d15ed9);
+    background-image: -moz-linear-gradient(top, #f585ef, #d15ed9);
+    background-image: -ms-linear-gradient(top, #f585ef, #d15ed9);
+    background-image: -o-linear-gradient(top, #f585ef, #d15ed9);
+    background-image: linear-gradient(to bottom, #f585ef, #d15ed9);
+    text-decoration: none;
+  }
+
+
+  hr.rainbow{
+    background: #ff0000;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#ff0000), color-stop(25%,#ffff00), color-stop(50%,#00ff00), color-stop(75%,#00ffff), color-stop(100%,#0000ff));
+    background: -webkit-linear-gradient(-45deg, #ff0000 0%,#ffff00 25%,#00ff00 50%,#00ffff 75%,#0000ff 100%);
+    background: -moz-linear-gradient(-45deg, #ff0000 0%, #ffff00 25%, #00ff00 50%, #00ffff 75%, #0000ff 100%);
+    background: -o-linear-gradient(-45deg, #ff0000 0%,#ffff00 25%,#00ff00 50%,#00ffff 75%,#0000ff 100%);
+    background: -ms-linear-gradient(-45deg, #ff0000 0%,#ffff00 25%,#00ff00 50%,#00ffff 75%,#0000ff 100%);
+    background: linear-gradient(-45deg, #ff0000 0%,#ffff00 25%,#00ff00 50%,#00ffff 75%,#0000ff 100%);
+    margin: 10px;
+	border: none;
+	height: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    
+    .blog_content {
+        font-size: 18px;
+    }
+
+    .blog_author {
+        font-size: 19px;  
+    }
+
+    .blog_date {
+        font-size: 19px; 
+    }
+
+    .author_location {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    a.nav-link {
+        font-size: 15px;   
+    }
+    .login-form {
+        width: 90%;
+    }
+
+    .hero-img {
+        display: block;
+        margin: 0px auto;
+        max-height: 200px;
+    }
+
+    .welcome-text {
+        margin-top: 0px;
+    }
+
+    .welcome-container {
+        padding-top: 0px;
+    }
+
+  }
+
+/* font-family: 'Hind Madurai', sans-serif;
+font-family: 'K2D', sans-serif;
+font-family: 'Stylish', sans-serif;
+
+{"bg":"#E1EFF7","icon-gradient-0":"#006678","icon-gradient-1":"#4FA8FF","font":"#0D2633","slogan":"#213a47"}*/

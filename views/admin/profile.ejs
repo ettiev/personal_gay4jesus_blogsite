@@ -1,0 +1,73 @@
+<%- include('partials/admin_header'); -%>
+
+<div class="container">
+<h1 class="page_head">Your Profile:</h1>
+
+<button class="btn-post-submit mb-4"><a class="no_blue" href="/author_bio/<%= user._id %>">Preview Bio</a></button>
+
+<form action="/admin/edit_profile" method="POST">
+    <div class="row">
+        <h4>Edit your profile:</h4>
+        
+        <div class="col-9 mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="hidden" class="form-control" id="username" name="username" value="<%= user.username %>">
+            <h4><strong><%= user.username %></strong></h4>
+        </div>
+
+        <div class="col-9 mb-3">
+            <label for="userRole" class="form-label">User Role:</label>
+            <input type="hidden" class="form-control" id="userRole" name="userRole" value="<%= user.role %>">
+            <h4><strong><%= user.role %></strong></h4>
+        </div>
+
+        <div class="col-4 mb-3">
+            <label for="userFirstName" class="form-label">First Name:</label>
+            <input type="text" class="form-control" id="userFirstName" name="userFirstName" value="<%= user.firstName %>">
+            <label class="subscript"> (Not publically visible)</label>
+        </div>
+
+        <div class="col-4 mb-3">
+            <label for="userLastName" class="form-label">Last Name:</label>
+            <input type="text" class="form-control" id="userLastName" name="userLastName" value="<%= user.lastName %>">
+            <label class="subscript"> (Not publically visible)</label>
+        </div>
+        
+        <div class="col-9 mb-3">
+            <label for="userEmail" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Email" value="<%= user.email %>" required>
+            <label class="subscript"> (Not publically visible)</label>
+        </div>
+        
+        <div class="col-9 mb-3">
+            <label for="userLocation" class="form-label">Your Location:</label>
+            <input type="text" class="form-control" id="userLocation" name="userLocation" placeholder="Location - e.g. London, England" value="<%= user.location %>">
+        </div>
+        
+        <div class="col-9 mb-3">
+            <label for="summernote" class="form-label">Your Bio:</label>
+            <textarea class="content_text" id="summernote" name="userBio" rows="6" placeholder="Use this space to tell readers (as much or little as you want) about yourself (e.g. hobbies, your job, your age, sexual-orientation, etc.)" style="color: black;" onpaste="removeFormat()"><%= user.bio %></textarea>
+        </div>
+
+        <div class="col-5 mb-4">
+            <label for="password" class="form-label">Update your password (leave empty to keep previous password):</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="New Password" >
+            <label for="confirmPassword" class="form-label">Confirm password:</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" >
+        </div>
+        
+        <div class="col-9 mb-3">
+            <button class="btn-post-submit" type="submit">Submit</button>
+        </div>    
+    </div>   
+</form>
+
+</div>
+
+<script>
+    function removeFormat() {
+        document.getElementById("summernote").innerText = TextFormatRemove(document.getElementById("summernote").innerText)
+    }
+</script>
+
+<%- include('partials/admin_footer'); -%>

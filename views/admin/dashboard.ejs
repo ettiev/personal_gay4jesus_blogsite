@@ -1,0 +1,60 @@
+<%- include('partials/admin_header'); -%>
+
+<div class="container">
+<h1 class="page_head">Personal Dashboard:</h1>
+    <div class="row">
+        <div class="dash-column">
+            <div class="dash-card purple">
+                <div class="row">
+                    <i class="bi bi-file-earmark-text dash-logo"></i>
+                </div>
+                <h3 class="center">Total<br />Posts</h3>
+                <hr class="rainbow">
+                <div class="row">
+                    <p class="dash-stats"><%= allPosts %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-column">
+            <div class="dash-card green">
+                <div class="row">
+                    <i class="bi bi-person-workspace dash-logo"></i>
+                </div>
+                <h3 class="center">Total<br />Views</h3>
+                <hr class="rainbow">
+                <div class="row">
+                    <p class="dash-stats"><%= allViews %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-column">
+            <div class="dash-card red">
+                <div class="row">
+                    <i class="bi bi-hearts dash-logo"></i>
+                </div>
+                <h3 class="center">Total<br />Loves</h3>
+                <hr class="rainbow">
+                <div class="row">
+                    <p class="dash-stats"><%= allLoves %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-column">
+            <div class="dash-card yellow">
+                <div class="row">
+                    <i class="bi bi-file-earmark-lock dash-logo"></i>
+                </div>
+                <h3 class="heading-center">Posts that<br />need approval</h3>
+                <hr class="rainbow">
+                <div class="row">
+                    <p class="dash-stats"><%= allPostDrafts %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<%- include('partials/admin_footer'); -%>

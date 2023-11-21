@@ -1,0 +1,87 @@
+<%- include('partials/admin_header'); -%>
+
+<div class="container">
+<h1 class="page_head">Edit User Details:</h1>
+
+<form action="/admin/edit_user" method="POST">
+    <div class="row">
+        <div class="col-9 mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" value="<%= user_edit.username %>">
+            <input type="hidden" class="form-control" id="userId" name="userId" value="<%= user_edit._id %>">
+        </div>
+
+        <div class="col-9 mb-3">
+            <label for="userRole" class="form-label">User Role:</label>
+            <select class="form-select" aria-label="Default select example" name="userRole" id="userRole">
+                <% if (user_edit.role === '') { %>
+                    <option selected>Select option:</option>
+                <% } else { %>
+                    <option selected>Select option:</option>    
+                <% } %>
+                
+                <% if (user_edit.role === 'subscriber') { %>
+                    <option value="subscriber" selected>Subscriber</option>
+                <% } else { %>
+                    <option value="subscriber">Subscriber</option>    
+                <% } %>
+
+                <% if (user_edit.role === 'contributor') { %>
+                    <option value="contributor" selected>Contributor</option>
+                <% } else { %>
+                    <option value="contributor">Contributor</option>    
+                <% } %>
+                
+                <% if (user_edit.role === 'admin') { %>
+                    <option value="admin" selected>Admin</option>
+                <% } else { %>
+                    <option value="admin">Admin</option>    
+                <% } %>
+            </select>
+        </div>
+
+        <div class="col-4 mb-3">
+            <label for="userFirstName" class="form-label">First Name:</label>
+            <input type="text" class="form-control" id="userFirstName" name="userFirstName" value="<%= user_edit.firstName %>">
+        </div>
+
+        <div class="col-4 mb-3">
+            <label for="userLastName" class="form-label">Last Name:</label>
+            <input type="text" class="form-control" id="userLastName" name="userLastName" value="<%= user_edit.lastName %>">
+        </div>
+        
+        <div class="col-9 mb-3">
+            <label for="userEmail" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Email" value="<%= user_edit.email %>" required>
+        </div>
+        
+        <div class="col-9 mb-3">
+            <label for="userLocation" class="form-label">Your Location:</label>
+            <input type="text" class="form-control" id="userLocation" name="userLocation" placeholder="Location - e.g. London, England" value="<%= user_edit.location %>">
+        </div>
+        
+        <div class="col-9 mb-3">
+            <label for="summernote" class="form-label">Your Bio:</label>
+            <textarea class="content_text" id="summernote" name="userBio" rows="6" placeholder="Use this space to tell readers (as much or little as you want) about yourself (e.g. hobbies, your job, your age, sexual-orientation, etc.)" style="color: black;" onpaste="removeFormat()"><%= user_edit.bio %></textarea>
+        </div>
+
+        <div class="col-5 mb-4">
+            <label for="password" class="form-label">Update password (leave empty to keep previous password):</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="New Password" >
+        </div>
+        
+        <div class="col-9 mb-3">
+            <button class="btn-post-submit" type="submit">Submit</button>
+        </div>    
+    </div>   
+</form>
+
+</div>
+
+<script>
+    function removeFormat() {
+        document.getElementById("summernote").innerText = TextFormatRemove(document.getElementById("summernote").innerText)
+    }
+</script>
+
+<%- include('partials/admin_footer'); -%>

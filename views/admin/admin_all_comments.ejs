@@ -1,0 +1,76 @@
+<%- include('partials/admin_header'); -%>
+
+<div class="container">
+<h1 class="page_head">All Comments:</h1>
+
+<table class="table table-bordered table-hover table-format">
+    <thead>
+        <tr>
+            <th scope="col">Blog</th>
+            <th scope="col">Author</th>
+            <th scope="col">Comment</th>
+            <th scope="col">Date</th>
+            <th scope="col">Approved</th>
+            <th scope="col">Edit/Delete</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% comments.forEach((comment) => { %>
+            <tr>
+                <td><a class="no_blue" href="/post/<%= comment.blogpost %>"><%= comment.blogpost_title %></a></td>
+                <td><%= comment.author %></td>
+                <td>
+                    <button class="modal_button" data-bs-toggle="modal" data-bs-target="#myModal<%= comment._id %>" type="button" id="button<%= comment._id %>">
+                        <% if (comment.comment.length > 50) { %>
+                            <%= comment.comment.substring(0,45) %>...
+                        <% } else { %>
+                            <%=  comment.comment %>
+                        <% } %>
+                    </button>
+                    
+                    <!-- modal -->
+                    <div class="modal fade" id="myModal<%= comment._id %>" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content modal-format">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="ModalLabel">Blog: <%= comment.blogpost_title %></h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><%= comment.author %> says:</p>
+                                <p><em>" <%= comment.comment %> "</em></p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                </td>
+                <td><%= comment.date %></td>
+                <td><% if (comment.approved) { %>
+                    <a class="no_blue approved" href="/admin/unapprove_comment/<%= comment._id %>"> <i class="bi bi-file-earmark-check"></i> Approved</a>    
+                <% } else { %>
+                    <a class="no_blue unapproved" href="/admin/approve_comment/<%= comment._id %>"> <i class="bi bi-file-earmark-excel"></i> Not Approved</a>
+                <% } %></td>
+                <td><a href="/admin/edit_comment/<%= comment._id %>"><i class="bi bi-pencil-square"></i></a> / <a href="/admin/delete_comment/<%= comment._id %>" onclick="return confirm('Are you sure you want to permanently delete this comment?')"><i class="bi bi-trash-fill"></i></a></td>
+            </tr>    
+        <% }) %>
+    </tbody>
+</table>
+
+
+</div> 
+
+<script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('modalText')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+    })
+</script>
+
+<%- include('partials/admin_footer'); -%>

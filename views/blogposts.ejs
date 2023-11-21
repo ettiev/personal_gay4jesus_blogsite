@@ -1,0 +1,40 @@
+<%- include('partials/header'); %>
+
+<div class="container">
+    <h1 class="page_head">Gay 4 Jesus Blogposts:</h1>
+    <div class="row mb-2">
+        <% blogs.forEach((blog) => { %>
+            <% if (blog.published === true) { %>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative post-card">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        
+                        <h3 class="mb-2">
+                            <% if (Date.parse(blog.date) >= new Date().getTime() - (60 * 24 * 60 * 60 * 1000)) { %>
+                                <img class="new-post-image" src="/images/d06f3f444d46372a9eba4a6a5d9113ce.png" alt="new post image">    
+                            <% } %>     
+                                <%= blog.title %>
+                        </h3>
+                        <strong class="d-inline-block mb-0 text-primary-emphasis">Author: <%= blog.author %></strong>
+                        <div class="mb-1 text-body-secondary"><%= blog.date %></div>
+                        <p class="card-text mb-auto" id="content1<%= blog._id %>"><%= blog.content %></p>
+                        <p class="card-text mb-auto" id="content2<%= blog._id %>" ></p>
+                        <a href="/post/<%= blog._id %>" class="icon-link gap-1 icon-link-hover stretched-link">
+                            Continue reading
+                        </a>
+                        <script>
+                            document.getElementById("content2<%= blog._id %>").innerHTML = document.getElementById("content1<%= blog._id %>").innerText
+                            document.getElementById("content2<%= blog._id %>").innerText = document.getElementById("content2<%= blog._id %>").innerText.substring(0,120) + " ...";
+                            document.getElementById("content1<%= blog._id %>").remove();
+                        </script>
+                    </div>
+                    <!-- <div class="col-auto d-none d-lg-block">
+                        <img class="bd-placeholder-img" width="200" height="250" src="/images/default.svg" alt="gay_4_Jesus_logo"/>
+                    </div> -->
+                </div>
+            </div>
+        <% }}) %>
+    </div>
+</div>
+
+<%- include('partials/footer'); %>

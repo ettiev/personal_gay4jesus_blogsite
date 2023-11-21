@@ -1,0 +1,76 @@
+<%- include('partials/header'); -%>
+
+<img class=" login-logo center" src="/images/default-monochrome.svg" alt="gay_4_Jesus_logo">
+
+<div class="align-items-center py-4 login-form">
+   
+<main class="form-signin w-100 m-auto">
+    <% if (errors) { %>
+        <% errors.forEach(error => { %>
+            <div class="error">
+                <p><%= error %></p>
+            </div>
+        <% }) %>
+    <% } %>
+  
+    <form action="/register" method="post">
+    <h1 class="h3 mb-3 fw-normal">Register</h1>
+
+    <div class="form-control mb-3 px-3 py-3">
+        <label class="subscript mb-2"> (Not publically visible)</label>
+        <div class="form-floating">
+            <input name="email" type="email" class="form-control" id="email" placeholder="name@example.com" value="<%= oldData.email %>" required>
+            <label for="email">Email address</label>
+        </div>
+        <br />
+        <div class="form-floating">
+            <input name="confirmEmail" type="email" class="form-control" id="confirmEmail" placeholder="name@example.com" value="<%= oldData.confirmEmail %>" required>    
+            <label for="confirmEmail">Confirm Email address</label>
+        </div>
+    </div>
+
+    <div class="form-control mb-3 px-3 py-3">
+        <div class="form-floating">
+            <input name="password"type="password" class="form-control" id="password" placeholder="Password" required>
+            <label for="password">Password</label>
+        </div>
+        <br />
+        <div class="form-floating">
+            <input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Password" required>
+            <label for="confirmPassword">Confirm Password</label>
+        </div>
+    </div>
+
+    <div class="form-control mb-3 px-3 py-3">
+        <div class="row">
+            <div class="col">
+                <input name="firstName" type="text" class="form-control" placeholder="First name" aria-label="First name" value="<%= oldData.firstName %>" required>
+                <label class="subscript"> (Not publically visible)</label>
+            </div>
+            <div class="col">
+                <input name="lastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="<%= oldData.lastName %>" required>
+                <label class="subscript"> (Not publically visible)</label>
+            </div>
+        </div>
+        <br />  
+        <div class="row">
+            <div class="col">
+                <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                <div class="input-group">
+                    <div class="input-group-text">@</div>
+                    <input name="username" type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" value="<%= oldData.username %>" required>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+
+    </form>
+</main>
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</div>
+
+<%- include('partials/footer'); -%>

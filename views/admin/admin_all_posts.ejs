@@ -1,0 +1,41 @@
+<%- include('partials/admin_header'); -%>
+
+<div class="container">
+    <h1 class="page_head">All Blog Posts (all users):</h1>
+    
+    <table class="table table-bordered table-hover table-format">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Date</th>
+                <th scope="col">Views</th>
+                <th scope="col">Love</th>
+                <th scope="col">Published</th>
+                <th scope="col">Edit/Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% blogs.forEach((blog) => { %>
+                <tr>
+                    <td><a class="no_blue" href="/post/<%= blog._id %>"><%= blog.title %></a></td>
+                    <td><%= blog.author %></td>
+                    <td><%= blog.date %></td>
+                    <td><%= blog.views %></td>
+                    <td><%= blog.love%></td>
+                    <td><% if (blog.published) { %>
+                        <a class="no_blue approved" href="/admin/unapprove_post/<%= blog._id %>"><i class="bi bi-file-earmark-check"></i> Published</a>
+                    <% } else { %>
+                        <a class="no_blue unapproved" href="/admin/approve_post/<%= blog._id %>"><i class="bi bi-file-earmark-excel"></i> Draft</a>
+                    <% } %></td>
+                    <td><a href="/admin/edit_post/<%= blog._id %>"><i class="bi bi-pencil-square"></i></a> / <a onclick="return confirm('Are you sure you want to permanently delete this blogpost?')" href="/admin/delete_post/<%= blog._id %>"><i class="bi bi-trash-fill"></i></a></td>
+                                  
+                </tr>    
+            <% }) %>
+        </tbody>
+    </table>
+
+</div> 
+
+<%- include('partials/admin_footer'); -%>

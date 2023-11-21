@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gay 4 Jesus Blog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../public/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=K2D:wght@300&family=Stylish&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/summernote.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/admin_styles.css">
+  </head>
+<body>
+
+<!-- Sidebar -->
+
+<div class="content-wrap">
+    <div class="row">
+        <div class="d-flex flex-column flex-shrink-0 p-3 side-panel-admin">
+            <a href="/admin/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img id="main_logo" src="/images/default-monochrome-white.svg" alt="gay_4_Jesus_logo" height="180px">
+                                
+            </a>
+            <hr class="rainbow">
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li class="nav-item">
+                <a href="/" class="nav-link side-btn text-white" aria-current="page">
+                  <i class="bi bi-house-heart"></i>
+                  Gay 4 Jesus Home
+                </a>
+            </li> 
+
+            <hr class="rainbow">
+              <% if (user.role === "admin") { %>
+                <li class="nav-item">
+                    <a href="/admin/admin_dashboard" class="nav-link side-btn text-white <%= page === 'admin_dash' ? 'active' : '' %>" aria-current="page">
+                      <i class="bi bi-graph-up-arrow"></i>
+                      Admin Dashboard
+                    </a>
+                </li>
+              
+                <li>
+                  <a href="/admin/admin_all_users" class="nav-link side-btn text-white <%= page === 'admin_users' ? 'active' : '' %>">
+                    <i class="bi bi-people-fill"></i>
+                      All Users
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/admin_all_posts" class="nav-link side-btn text-white <%= page === 'admin_posts' ? 'active' : '' %>">
+                    <i class="bi bi-folder2-open"></i>
+                      All Posts
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/admin_all_comments" class="nav-link side-btn text-white <%= page === 'admin_comments' ? 'active' : '' %>">
+                    <i class="bi bi-chat-left-dots"></i>
+                      All Comments
+                  </a>
+                </li>
+                
+
+                <hr class="rainbow">
+              <% } %>
+                <li>
+                    <a href="/admin/dashboard" class="nav-link side-btn text-white <%= page === 'dashboard' ? 'active' : '' %>">
+                      <i class="bi bi-speedometer2"></i>
+                        Personal Dashboard
+                    </a>
+                </li>
+              
+              <% if (user.role === "admin" || user.role === "contributor") { %>  
+                <li>
+                    <a href="/admin/posts" class="nav-link side-btn text-white <%= page === 'posts' ? 'active' : '' %>">
+                      <i class="bi bi-file-earmark-text"></i>
+                        Your Posts
+                    </a>
+                </li>
+
+                <li>
+                  <a href="/admin/comments" class="nav-link side-btn text-white <%= page === 'comments' ? 'active' : '' %>">
+                    <i class="bi bi-chat-left-heart"></i>
+                      Comments
+                  </a>
+                </li>
+              <% } %>
+
+                <li>
+                    <a href="/admin/submit" class="nav-link side-btn text-white <%= page === 'submit' ? 'active' : '' %>">
+                      <i class="bi bi-envelope"></i>
+                        Submit a New Blog Post
+                    </a>
+                </li>
+                
+              <li>
+                <a href="/admin/profile" class="nav-link side-btn text-white <%= page === 'profile' ? 'active' : '' %>"">
+                  <i class="bi bi-person-square"></i>
+                    Your Profile
+                </a>
+            </li>
+            </ul>
+
+            <hr class="rainbow">
+                   
+        </div> 
+        
+        <div class="col">
+            <!-- Header -->
+            <div class="container">
+                <header class="d-flex flex-wrap justify-content-between py-4 mb-2">
+                    <h1>Welcome to the Admin Page!</h1>
+
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/images/arrow.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong><%= user.username %> [<%= user.role %>]</strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu text-small shadow dropmenu">
+                          <li><a class="dropdown-item text-white" href="/admin/dashboard">Dashboard</a></li>
+                          <li><a class="dropdown-item text-white" href="/admin/submit">New Blog Post...</a></li>
+                        <% if (user.role === "admin" || user.role === "contributor") { %>
+                          <li><a class="dropdown-item text-white" href="/admin/posts">Your Posts</a></li>
+                        <% } %>
+                        <li><a class="dropdown-item text-white" href="/admin/profile">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                            <form action="/admin/logout" method="post">
+                              <li><button class="dropdown-item text-white">Sign out</button></li>
+                            </form>
+                        </ul>
+                    </div>
+                </header>
+            </div>
+            <hr class="rainbow">
+
+  
